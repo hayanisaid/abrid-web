@@ -1,2 +1,10 @@
 build/*.js
 config/*.js
+build/*.js
+config/*.js
+build/*
+// The line below means to include this one file in eslint from the above instruction to ignore the entire dir: 
+!build/index.js
+"**/*.vue"
+"**/*"
+"**/*.js"

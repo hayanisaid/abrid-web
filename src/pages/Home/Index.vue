@@ -1,73 +1,35 @@
 <template>
-  <v-layout>
-    <v-card contextual-style="dark">
-      <span slot="header">
-        Welcome!
-      </span>
-      <div slot="body">
-        <p>
-          Get started with the Vue 2 boilerplate
-        </p>
-        <p>
-          For questions, contact me:
-        </p>
-        <p>
-          <a
-            class="btn btn-outline-primary"
-            href="http://gitter.im/petervmeijgaard"
-            target="_blank"
-          >
-            <i
-              class="fa fa-github fa-fw"
-              aria-hidden="true"
-            ></i>
-            <span class="pl-2">
-              Gitter
-            </span>
-          </a>
-          <a
-            class="btn btn-outline-primary"
-            href="http://github.com/petervmeijgaard"
-            target="_blank"
-          >
-            <i
-              class="fa fa-github fa-fw"
-              aria-hidden="true"
-            ></i>
-            <span class="pl-2">
-              GitHub
-            </span>
-          </a>
-          <a
-            class="btn btn-outline-primary"
-            href="http://twitter.com/petervmeijgaard"
-            target="_blank"
-          >
-            <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <span class="pl-2">
-              Twitter
-            </span>
-          </a>
-        </p>
-        <p>
-          For bugs, see:
-        </p>
-        <a
-          class="btn btn-outline-primary"
-          href="https://github.com/petervmeijgaard/vue-2.0-boilerplate/issues"
-          target="_blank"
-        >
-          <i class="fa fa-github fa-fw" aria-hidden="true"></i>
-          <span class="pl-2">
-            GitHub
-          </span>
-        </a>
+  <div class="row">
+    <div class="col-md-8">
+      map
+    </div>
+    <div class="col-md-4 menu">
+      <div class="logo">
+        <img src='./../../assets/logo1.png' class="img-fluid img-responsive"/>
       </div>
-      <div slot="footer">
-        Made with love by Vivid Web
+      <div class="nv">
+        <ul class="list-unstyled">
+          <li>
+            <input type="text" class="form-control form-control-lg" placeholder="search location">
+          </li>
+          <li>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  Select a Specific Time
+                </div>
+                <datepicker class="date" input-class="form-control-lg" placeholder="EX:9/8/2018"></datepicker>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="charts">
+
+
+        </div>
       </div>
-    </v-card>
-  </v-layout>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -77,9 +39,13 @@
    *
    * The home index page.
    */
+  // eslint disabled
+  /* eslint-disable no-alert, no-console */
 
   import VLayout from '@/layouts/Default';
   import VCard from '@/components/Card';
+  import Datepicker from 'vuejs-datepicker';
+  
 
   export default {
     /**
@@ -93,6 +59,28 @@
     components: {
       VLayout,
       VCard,
+      Datepicker,
     },
+    data(){
+      return{
+        date:'',
+      }
+    },
+    mounted(){
+      let dt = new Date()
+      this.date=dt.toDateString
+    }
   };
 </script>
+<style>
+.menu{
+  position: fixed;
+  background:#f6f6e9;
+  right: 0;
+}
+.menu .logo img{
+width: 20em;
+height: 20em;
+}
+</style>
+
